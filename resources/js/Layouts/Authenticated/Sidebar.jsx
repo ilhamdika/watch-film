@@ -9,7 +9,8 @@ export default function Sidebar ({ auth }){
 
     <div className="flex flex-col p-[30px] pr-0 border-r border-gray-[#F1F1F1] overflow-y-auto h-full">
         <Link href={route('prototype.dashboard')}>
-            <img src="/images/moonton.svg" alt="" />
+            {/* <img src="/images/moonton.svg" alt="" /> */}
+            <h1 className="text-3xl font-black">Yuk <span className="text-amber-600">Nonton</span></h1>
         </Link>
         <div className="links flex flex-col mt-[60px] h-full gap-[50px]">
 
@@ -18,6 +19,7 @@ export default function Sidebar ({ auth }){
                 <div className="text-gray-1 text-sm mb-4">Menu</div>
                     {UserMenu.map((menu, index) => (
                         <MenuItem 
+                        className="text-white"
                         key={`${index}-${menu.text}`}
                         link={menu.link}
                         icon={menu.icon}
@@ -25,6 +27,7 @@ export default function Sidebar ({ auth }){
                         isActive={
                             menu.link && route().current(menu.link)
                         }
+                        
                         />
                     ))}
                 

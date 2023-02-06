@@ -15,7 +15,8 @@ export default function Dashboard({ auth, featuredMovies, movies }) {
                 "prevNextButtons": false,
                 "draggable": ">1"
     };
-    return <Authenticated auth={auth}>
+    return <div className="bg-zinc-300">
+            <Authenticated auth={auth} >
         <Head>
             <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css" />
             <title>Dashboard</title>
@@ -29,7 +30,7 @@ export default function Dashboard({ auth, featuredMovies, movies }) {
                     slug={featuredMovie.slug}
                     name={featuredMovie.name}
                     category={featuredMovie.category}
-                    thumbnail={featuredMovie.thumbnail}
+                    thumbnail={`/storage/${featuredMovie.thumbnail}`}
                     rating={featuredMovie.rating}
                 />
             ))}
@@ -43,12 +44,14 @@ export default function Dashboard({ auth, featuredMovies, movies }) {
                         <MovieCard key={movie.id} 
                             slug={movie.slug}
                             name={movie.name}
-                            thumbnail={movie.thumbnail}
+                            thumbnail={`/storage/${movie.thumbnail}`}
                             category={movie.category}
                         />
                     ))}
                     </Flickity>
                 </div>
             </Authenticated>
+    
+    </div> 
     
 }

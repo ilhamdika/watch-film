@@ -10,3 +10,7 @@
     @apply bg-[#fff] focus:bg-[#fff] border-alerange focus:border-alerange;
     @apply file:bg-alerange file:text-white file:rounded-md file:p-2;
 }
+
+.input-movie {
+    @apply bg-white focus:bg-white border-alerange focus:border-alerange;
+}
