@@ -1,23 +1,23 @@
 import { forwardRef, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 
-// Input.propTypes ={
-//     type : PropTypes.oneOf(["text", "email", "password", "number", "file"]),
-//     name : PropTypes.string,
-//     value : PropTypes.oneOf([PropTypes.string, PropTypes.number]),
-//     defaultValue : PropTypes.oneOf([PropTypes.string, PropTypes.number]),
-//     className : PropTypes.string,
-//     variant : PropTypes.oneOf(["primary", 'error', 'primary-outline']),
-//     autoComplete : PropTypes.string,
-//     required : PropTypes.bool,
-//     isFocused : PropTypes.bool,
-//     handleChange : PropTypes.func,
-//     placeholder : PropTypes.string,
-//     isError : PropTypes.bool,
-// }
+TextInput.propTypes ={
+    type : PropTypes.oneOf(["text", "email", "password", "number", "file"]),
+    name : PropTypes.string,
+    value : PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    defaultValue : PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    className : PropTypes.string,
+    variant : PropTypes.oneOf(["primary", 'error', 'primary-outline']),
+    autoComplete : PropTypes.string,
+    required : PropTypes.bool,
+    isFocused : PropTypes.bool,
+    handleChange : PropTypes.func,
+    placeholder : PropTypes.string,
+    isError : PropTypes.bool,
+}
 
-export default forwardRef(function TextInput(
-    { type = 'text', 
+export default function TextInput ({
+    type = 'text', 
     name, 
     id, 
     value,
@@ -30,13 +30,11 @@ export default forwardRef(function TextInput(
     handleChange,
     placeholder,
     isError,
- },
-    ref
-) {
-    const input = ref ? ref : useRef();
+}) {
+    const input = useRef();
 
     useEffect(() => {
-        if (isFocused) {
+        if(isFocused){
             input.current.focus();
         }
     }, []);
@@ -60,4 +58,4 @@ export default forwardRef(function TextInput(
             />
         </div>
     );
-});
+};
